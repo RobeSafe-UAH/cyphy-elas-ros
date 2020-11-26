@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- Center ELAS -->
+  <arg name="elas_ns_center" default="elas_center"/>
+  <arg name="stereo_center"  default="stereo_center" />
+
+  <!-- Zoom ELAS -->
+  <arg name="elas_ns_zoom" default="elas_zoom"/>
+  <arg name="stereo_zoom"  default="stereo_zoom" />
+
+
+  <!-- Include main launch file -->
+  <include ns="elas_center" file="$(find elas_ros)/launch/elas.launch">
+    <arg name="elas_ns_center"    value="$(arg elas_ns_center)"/>
+    <arg name="stereo_center" value="$(arg stereo_center)" />
+  </include>
+
+  <include ns="elas_zoom" file="$(find elas_ros)/launch/elas.launch">
+    <arg name="elas_ns_zoom"    value="$(arg elas_ns_zoom)"/>
+    <arg name="stereo_zoom" value="$(arg stereo_zoom)" />
+  </include>
+
+</launch>
